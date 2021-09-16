@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: rgb(41, 39, 39);
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color: rgb(185, 179, 179);
+    text-align: center;
+    padding-top: 1em;
+    font-size: 3rem;
+}
+
+.main-card {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards-thumbnail {
+    padding: 1.5em;
+}
+
+img:hover {
+    color: rgba(172, 165, 165, 0.486);
+    background-color: rgba(172, 165, 165, 0.486);
+    filter: blur(2.5px)
+}
+
+.card {
+    position: relative;
+}
+
+.card #text-hover {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+}
+
+.card:hover #text-hover{
+    opacity: 1;
+}
