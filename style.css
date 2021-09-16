@@ -40,11 +40,23 @@ img:hover {
 .card #text-hover {
     position: absolute;
     color: white;
-    top: 50%;
-    left: 50%;
+    top: 6em;
+    left: 10em;
     opacity: 0;
 }
 
 .card:hover #text-hover{
+    opacity: 1;
+}
+
+.card #text-content {
+    position: absolute;
+    color: white;
+    top: 8em;
+    left: 12em;
+    opacity: 0;
+}
+
+.card:hover #text-content{
     opacity: 1;
 }
