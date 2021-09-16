@@ -7,6 +7,7 @@
     width: 1300px;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 2.5em;
 }
 
 h1 {
@@ -18,45 +19,55 @@ h1 {
 }
 
 .main-card {
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cards-thumbnail {
-    padding: 1.5em;
+    display: block;
+    width: 100%;
+    background-size: cover;
 }
 
-img:hover {
-    color: rgba(172, 165, 165, 0.486);
-    background-color: rgba(172, 165, 165, 0.486);
-    filter: blur(2.5px)
-}
-
-.card {
+.cards {
     position: relative;
+    width: 30%;
+    padding: 0.5em;
 }
 
-.card #text-hover {
-    position: absolute;
-    color: white;
-    top: 6em;
-    left: 10em;
+.overlay {
     opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    transition: opacity 0.2s;
 }
 
-.card:hover #text-hover{
+.overlay:hover {
     opacity: 1;
 }
 
-.card #text-content {
-    position: absolute;
-    color: white;
-    top: 8em;
-    left: 12em;
-    opacity: 0;
+
+.image-blur:hover {
+    backdrop-filter: blur(3px);
 }
 
-.card:hover #text-content{
-    opacity: 1;
-}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }

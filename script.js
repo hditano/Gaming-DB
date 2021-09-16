@@ -22,10 +22,12 @@ fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
 
 function renderData() {
     for (let i = 0; i < myArray.length; i++) {
-        mainCard.innerHTML += ` <div class="card">
-                                <img class="cards-thumbnail" src="${myArray[i].thumbnail}">
-                                <a id="text-hover">${myArray[i].title}</a>
-                                <a id="text-content">${myArray[i].genre} ${myArray[i].publisher}</a>
+        mainCard.innerHTML += `<div class="cards">
+                                <img class="cards-thumbnail"  src="${myArray[i].thumbnail}">
+                                    <div class="overlay image-blur">
+                                        <div class="text-title noselect">${myArray[i].title}</div>
+                                        <p class ="text-content noselect">${myArray[i].genre}</p>
+                                    </div>
                                 </div>`
     }
 }
