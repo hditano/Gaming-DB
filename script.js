@@ -12,10 +12,6 @@ fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
     .then(response => response.json())
     .then(data => {
         myArray = data.slice(0, 21);
-
-        for (let array of myArray) {
-            console.log(array.thumbnail);
-        }
         renderData()
     })
 
@@ -25,8 +21,9 @@ function renderData() {
         mainCard.innerHTML += `<div class="cards">
                                 <img class="cards-thumbnail"  src="${myArray[i].thumbnail}">
                                     <div class="overlay image-blur">
-                                        <div class="text-title noselect">${myArray[i].title}</div>
-                                        <p class ="text-content noselect">${myArray[i].genre}</p>
+                                        <div class="text-title noselect"><span class="text-name">${myArray[i].title}</span> by <span class="text-dev">${myArray[i].developer}</span></div>
+                                        <p class="text-content noselect">${myArray[i].genre}</p>
+                                        <p class="short-content noselect">${myArray[i].short_description}</p>
                                     </div>
                                 </div>`
     }
