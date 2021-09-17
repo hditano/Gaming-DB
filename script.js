@@ -11,7 +11,7 @@ fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
     })
     .then(response => response.json())
     .then(data => {
-        const randomStart = Math.floor(Math.random() * 50);
+        const randomStart = Math.floor(Math.random() * data.length);
         myArray = data.slice(randomStart, randomStart + 21);
         renderData()
     })
@@ -22,7 +22,7 @@ function renderData() {
         mainCard.innerHTML += `<div class="cards">
                                 <img class="cards-thumbnail"  src="${myArray[i].thumbnail}">
                                     <div class="overlay image-blur">
-                                        <div class="text-title noselect"><span class="text-name">${myArray[i].title}</span> by <span class="text-dev">${myArray[i].developer}</span></div>
+                                        <div class="text-title noselect"><a href="${myArray[i].game_url}" target="_blank"><span class="text-name">${myArray[i].title}</span></a> by <span class="text-dev">${myArray[i].developer}</span></div>
                                         <p class="text-content noselect">${myArray[i].genre}</p>
                                         <p class="short-content noselect">${myArray[i].short_description}</p>
                                     </div>
