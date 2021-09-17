@@ -12,8 +12,7 @@
 *  CSS stylying for flipping card
 *  Access to different object properties and render them on each card.
 
-
-![image](https://user-images.githubusercontent.com/6069906/133845688-21b9ca64-87d8-4db2-9794-dca5ec9c36d2.png)
+![alt-text](https://github.com/hditano/Gaming-DB/blob/main/Gaming_Api.gif)
 
 
 
