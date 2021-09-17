@@ -11,7 +11,8 @@ fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
     })
     .then(response => response.json())
     .then(data => {
-        myArray = data.slice(0, 21);
+        const randomStart = Math.floor(Math.random() * 50);
+        myArray = data.slice(randomStart, randomStart + 21);
         renderData()
     })
 
