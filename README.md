@@ -18,4 +18,4 @@
 
 
 
-### Live Demo: [Here](https://hditano.github.io/Gaming-DB/)
+# Live Demo: [Here](https://hditano.github.io/Gaming-DB/)
