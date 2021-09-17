@@ -1,4 +1,5 @@
 const mainCard = document.querySelector('.main-card');
+const sortBtn = document.querySelector('.sort-btn');
 let myArray = [];
 let myObject = {};
 
@@ -13,19 +14,40 @@ fetch("https://free-to-play-games-database.p.rapidapi.com/api/games", {
     .then(data => {
         const randomStart = Math.floor(Math.random() * data.length);
         myArray = data.slice(randomStart, randomStart + 21);
-        renderData()
+        renderData(myArray)
     })
 
 
-function renderData() {
-    for (let i = 0; i < myArray.length; i++) {
+function renderData(arr) {
+    for (let i = 0; i < arr.length; i++) {
         mainCard.innerHTML += `<div class="cards">
-                                <img class="cards-thumbnail"  src="${myArray[i].thumbnail}">
+                                <img class="cards-thumbnail"  src="${arr[i].thumbnail}">
                                     <div class="overlay image-blur">
-                                        <div class="text-title noselect"><a href="${myArray[i].game_url}" target="_blank"><span class="text-name">${myArray[i].title}</span></a> by <span class="text-dev">${myArray[i].developer}</span></div>
-                                        <p class="text-content noselect">${myArray[i].genre}</p>
-                                        <p class="short-content noselect">${myArray[i].short_description}</p>
+                                        <div class="text-title noselect"><a href="${arr[i].game_url}" target="_blank"><span class="text-name">${arr[i].title}</span></a> by <span class="text-dev">${arr[i].developer}</span></div>
+                                        <p class="text-content noselect">${arr[i].genre}</p>
+                                        <p class="short-content noselect">${arr[i].short_description}</p>
                                     </div>
                                 </div>`
     }
 }
+
+function sortAlphabet() {
+    mainCard.innerHTML = '';
+    let tempArray = {};
+    tempArray = myArray;
+    tempArray.sort((a, b) => (a.title > b.title) ? 1 : -1);
+    renderData(tempArray);
+}
+
+function sortYear() {
+    mainCard.innerHTML = '';
+    let tempArray = {};
+    tempArray = myArray;
+    tempArray.sort((a, b) => (a.release_date > b.release_date) ? 1 : -1);
+    renderData(tempArray);
+}
+
+sortBtn.addEventListener('change', (e) => {
+    if(e.target.value === 'by_alphabetical') sortAlphabet();
+    if(e.target.value === 'by_year') sortYear();
+});
